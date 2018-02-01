@@ -12,7 +12,7 @@
   "dependencies": {
     "axios": "0.17.1",
     "moment": "2.20.1",
-    "next": "4.2.1",
+    "next": "4.2.3",
     "react": "16.2.0",
     "react-autocomplete": "1.7.2",
     "react-autosuggest": "9.3.2",
