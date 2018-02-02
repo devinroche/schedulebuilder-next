@@ -7,7 +7,8 @@ class Search extends React.Component {
         this.state = {
             value: '',
             suggestions: [],
-            data: []
+            data: [],
+            courses: []
         };
     }
 
@@ -45,11 +46,14 @@ class Search extends React.Component {
                     )
                 }}
                 onSelect={(value, item) => {
-                    console.log(value, item)
-                    this.setState({ value, unitedStates: [item] })
+                    console.log(item.seminar)
+                    this.setState({
+                        courses: [item.seminar, ...this.state.courses]
+                    })
                 }}
                 onChange={(event, value) => {
                     this.setState({ value })
+                    console.log(this.state.courses)
                 }}
                 renderMenu={children => (
                     <div className="menu">
