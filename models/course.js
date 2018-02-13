@@ -62,5 +62,5 @@ const CourseSchema = new Schema({
 });
 
 
-module.exports = mongoose.model('Course', CourseSchema);
+module.exports = mongoose.model('catalog-spring-2018', CourseSchema);
 

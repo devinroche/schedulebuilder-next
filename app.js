@@ -1,9 +1,8 @@
 const courses = require('./routes/api/courses');
 const schedules = require('./routes/api/schedules');
 
-
 const express = require('express');
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
 const bodyParser = require('body-parser');
@@ -14,7 +13,9 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-mongoose.connect('mongodb://localhost/schedule-builder', { promiseLibrary: require('bluebird') })
+require('dotenv').config();
+
+mongoose.connect(process.env.MONGODB_URI, { promiseLibrary: require('bluebird') })
     .then(function(){console.log('connection successful')})
     .catch(function(err){ console.error(err)});
 
