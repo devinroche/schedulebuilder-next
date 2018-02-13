@@ -19,7 +19,6 @@
     "next": "^4.2.3",
     "react": "16.2.0",
     "react-autocomplete": "1.7.2",
-    "react-autosuggest": "9.3.2",
     "react-big-calendar": "0.17.0",
     "react-dom": "16.2.0"
   },
