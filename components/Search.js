@@ -19,7 +19,7 @@ class Search extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3001/api/classes').then(
+        axios.get('/api/courses/').then(
             (response) => {
                 const filteredArr = response.data.filter((obj, pos, arr) => {
                         return response.data.map(mapObj => mapObj['seminar']).indexOf(obj['seminar']) === pos;
