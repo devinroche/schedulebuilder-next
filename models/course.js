@@ -40,20 +40,12 @@ const CourseSchema = new Schema({
         type: String,
         required: [true, 'End_Date Field is required.']
     },
-    days: {
-        type: String,
-        required: [true, 'Days Field is required.']
-    },
     times: {
-        type: String,
+        type: [String],
         required: [true, 'Times Field is required.']
     },
-    building: {
-        type: String,
-        required: [true, 'Building Field is required.']
-    },
-    room: {
-        type: String,
+    location: {
+        type: [String],
         required: [true, 'Room Field is required.']
     },
     instructor: {
@@ -68,6 +60,7 @@ const CourseSchema = new Schema({
         type: String
     }
 });
+
 
 module.exports = mongoose.model('Course', CourseSchema);
 

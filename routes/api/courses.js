@@ -3,17 +3,18 @@ var router = express.Router();
 var Catalog = require('../../models/course');
 
 
-// Get all Course information for all Courses
+// Get basic course information
 router.get('/', function (req, res, next) {
-    Catalog.find(function (err, courses) {
+    Catalog.find({}, {_id:0, seminar:1, title:1}, function (err, courses) {
         if (err) next(err);
+
         res.json(courses);
     });
 });
 
-// Get basic course information
-router.get('/courses', function (req, res, next) {
-    Catalog.find({}, {_id:0, seminar:1, title:1}, function (err, courses) {
+// Get all Course information for all Courses
+router.get('/detail', function (req, res, next) {
+    Catalog.find(function (err, courses) {
         if (err) next(err);
         res.json(courses);
     });
