@@ -1,4 +1,6 @@
-const api = require('./routes/api');
+const courses = require('./routes/api/courses');
+const schedules = require('./routes/api/schedules');
+
 
 const express = require('express');
 var mongoose = require('mongoose');
@@ -22,7 +24,8 @@ co(function * () {
     const server = express();
 
     server.use(bodyParser.json());
-    server.use('/api', api);
+    server.use('/api/courses', courses);
+    server.use('/api/schedules', schedules);
 
     server.get('*', (req, res) => {
         return handle(req, res)
