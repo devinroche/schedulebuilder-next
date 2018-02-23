@@ -1,13 +1,16 @@
+import axios from 'axios'
+import SubmitBtn from './SubmitBtn'
+
 const CurrentSelected = ({ classes }) => (
     <div>
         <ul>
-            {classes.map((element) => {
-                return (<li>{element.seminar}, {element.title}</li>)
-            })}
+            {classes.map((element, i) => {
+                return (<li key={i}>{element.seminar}, {element.title}</li>)
+            })
+            }
         </ul>
-        <button onClick={() => {
-            console.log(classes.map(cls => cls.seminar))
-        }}>submit</button>
+
+        <SubmitBtn courses={classes.map(cls => cls.seminar)} />
     </div>
 )
 

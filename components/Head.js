@@ -27,6 +27,18 @@ export default () => (
         padding-left: 40px;
         background-repeat: no-repeat;
     }
+    .menu {
+        font-size: 16px;
+        height: 80vh;
+        overflow-y: scroll;
+        border: 1px solid black;
+    }
+    .searchElem {
+        padding-left: 50px;
+    }
+    .searchElem:hover{
+        background-color: red;
+    }
     `}</style>
   </div>
 )

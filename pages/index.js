@@ -18,7 +18,6 @@ export default () => (
             <div className='four columns' style={containerStyle}>
                 <div className='container'>
                     <Search theme="u-full-width"/>
-                    <div style={containerStyle.hr}><hr /></div>
                 </div>
             </div>
         </div>
