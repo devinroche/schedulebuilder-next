@@ -18,7 +18,7 @@ export default class extends React.Component {
     }
 
     setSchedules = (scheduleArr) => {
-        console.log(scheduleArr)
+        console.log(scheduleArr, 'hi')
         this.setState({
             schedules: scheduleArr
         })
