@@ -9,17 +9,35 @@ const containerStyle = {
     height: '90vh',
 }
 
-export default () => (
-    <Layout>
-        <div className='row'>
-            <div className='eight columns cal' style={containerStyle}>
-                <Calendar/>
-            </div>
-            <div className='four columns' style={containerStyle}>
-                <div className='container'>
-                    <Search theme="u-full-width"/>
+export default class extends React.Component {
+    constructor () {
+        super()
+        this.state = {
+            schedules: []
+        }
+    }
+
+    setSchedules = (scheduleArr) => {
+        console.log(scheduleArr)
+        this.setState({
+            schedules: scheduleArr
+        })
+    }
+
+    render(){
+        return(
+            <Layout>
+                <div className='row'>
+                    <div className='eight columns cal' style={containerStyle}>
+                        <Calendar/>
+                    </div>
+                    <div className='four columns' style={containerStyle}>
+                        <div className='container'>
+                            <Search callback={this.setSchedules.bind(this)} theme="u-full-width"/>
+                    </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </Layout>
-)
+            </Layout>
+        )
+    }
+}

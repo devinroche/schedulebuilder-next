@@ -31,6 +31,12 @@ class Search extends React.Component {
             }
         )
     }
+    
+    clearClasses = () => {
+        this.setState({
+            courses: []
+        })
+    }
 
     render() {
         return (
@@ -48,7 +54,6 @@ class Search extends React.Component {
                         )
                     }}
                     onSelect={(value, item) => {
-                        console.log(item.seminar)
                         this.setState({
                             courses: [item, ...this.state.courses]
                         })
@@ -65,7 +70,7 @@ class Search extends React.Component {
                         <div className='searchElem' key={item.seminar}>{item.title}</div>
                     )}
                 />
-                <CurrentSelected classes={this.state.courses} />
+                <CurrentSelected submitCourses={this.props.callback} classes={this.state.courses} callback={this.clearClasses.bind(this)}/>
             </div>
         );
     }

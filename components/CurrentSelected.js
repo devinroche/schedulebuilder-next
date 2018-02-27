@@ -1,7 +1,7 @@
 import axios from 'axios'
 import SubmitBtn from './SubmitBtn'
 
-const CurrentSelected = ({ classes }) => (
+const CurrentSelected = ({ classes, callback, submitCourses }) => (
     <div>
         <ul>
             {classes.map((element, i) => {
@@ -10,7 +10,8 @@ const CurrentSelected = ({ classes }) => (
             }
         </ul>
 
-        <SubmitBtn courses={classes.map(cls => cls.seminar)} />
+        <SubmitBtn callback={submitCourses} courses={classes.map(cls => cls.seminar)} />
+        <button onClick={callback}>Clear Selected</button>
     </div>
 )
 
