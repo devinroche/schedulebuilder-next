@@ -20,14 +20,37 @@ export default class extends React.Component {
             current: null
         }
     }
+    changeCal = (dir) => {
+        if(dir === 1) this.state.counter++
+        else this.state.counter--
+
+        console.log(this.state.counter)
+    }
+
+    formCalendar = (schedule) => {
+        let tmp = []
+        schedule.map((course) => {
+            Object.keys(course.week).map((day, i) => (course.week[day] == null) && delete course.week[day]);
+            Object.keys(course.week).map((day, i) => {
+                tmp.push({
+                    uid: tmp.length,
+                    value: course.seminar,
+                    start: moment([2018, 9, dayMap[day], course.week[day][0].split(':')[0], course.week[day][0].split(':')[1]]),
+                    end: moment([2018, 9, dayMap[day], course.week[day][1].split(':')[0], course.week[day][1].split(':')[1]])
+                })
+            })
+        })
+        this.setState({
+            tmp: tmp
+        })
+    }
 
     setSchedules = (scheduleArr) => {
-        console.log(scheduleArr)
         this.setState({
             schedules: scheduleArr,
             current: scheduleArr[0],
         })
-        
+        this.formCalendar(scheduleArr[0])
     }
 
     render(){
@@ -35,8 +58,8 @@ export default class extends React.Component {
             <Layout>
                 <div className='row'>
                     <div className='eight columns cal' style={containerStyle}>
-                        <Calendar schedule={this.state.current} cal={this.state.tmpCal} />
-                        <ButtonController />
+                        <Calendar schedule={this.state.current} cal={this.state.tmp} />
+                        <ButtonController cb={this.changeCal.bind(this)} />
                     </div>
                     <div className='four columns' style={containerStyle}>
                         <div className='container'>
@@ -48,23 +71,7 @@ export default class extends React.Component {
         )
     }
 }
-let tmp =[]
-let formCalendar = schedule => {
-    schedule.map((course) => {
-        Object.keys(course.week).map((day, i) => (course.week[day] == null) && delete course.week[day]);
-        Object.keys(course.week).map((day, i) => {
-            tmp.push({
-                uid: formCalendar.length,
-                title: course.seminar,
-                start: moment([2018, 10, dayMap[day], course.week[day][0].split(':')[0], course.week[day][0].split(':')[1]]),
-                end: moment([2018, 10, dayMap[day], course.week[day][1].split(':')[0], course.week[day][1].split(':')[1]])
-            })
-        })
-    })
-    this.setSchedules({
-        tmpCal: tmp
-    })
-}
+
 let dayMap = {
     M: 1,
     T: 2,

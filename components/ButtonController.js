@@ -1,15 +1,19 @@
 const NextBtn = () => {
-    return(<button onClick={()=> console.log('fart')}>next</button>)
+    return(<button>next</button>)
 }
 const PrevBtn = () => {
-    return(<button onClick={()=> console.log('fart')}>prev</button>)
+    return(<button>prev</button>)
 }
-const ButtonController = ({ callback }) => (
+const ButtonController = ({ cb }) => {
+    console.log(cb)
+
+    return(
     <div>
-        <PrevBtn/>
-        <NextBtn/>
+        <button onClick={() => cb(0)}>prev</button>
+        <button onClick={()=> cb(1)}>next</button>
     </div>
-)
+    )
+}
 
 export default ButtonController
 
