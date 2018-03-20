@@ -5,8 +5,6 @@ const PrevBtn = () => {
     return(<button>prev</button>)
 }
 const ButtonController = ({ cb }) => {
-    console.log(cb)
-
     return(
     <div>
         <button onClick={() => cb(0)}>prev</button>

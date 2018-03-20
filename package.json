@@ -14,7 +14,7 @@
     "@zeit/next-css": "0.1.4",
     "axios": "0.17.1",
     "dotenv": "^5.0.1",
-    "express": "^4.16.2",
+    "express": "4.16.3",
     "moment": "2.20.1",
     "mongoose": "5.0.9",
     "next": "5.0.0",
@@ -22,7 +22,8 @@
     "react-autocomplete": "1.7.2",
     "react-big-calendar": "0.17.0",
     "react-dom": "16.2.0",
-    "react-week-calendar": "0.1.1"
+    "react-week-calendar": "0.1.1",
+    "styled-components": "3.2.3"
   },
   "devDependencies": {}
 }

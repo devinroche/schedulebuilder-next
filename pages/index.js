@@ -1,15 +1,9 @@
 import Layout from '../components/Layout'
-import Calendar from '../components/Calendar'
+import Cal from '../components/tmpCal'
 import Search from '../components/Search';
 import ButtonController from '../components/ButtonController'
 import moment from 'moment';
-
-const containerStyle = {
-    padding: 15,
-    margin: 10,
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
-    height: '90vh',
-}
+import styled from 'styled-components';
 
 export default class extends React.Component {
     constructor () {
@@ -23,8 +17,6 @@ export default class extends React.Component {
     changeCal = (dir) => {
         if(dir === 1) this.state.counter++
         else this.state.counter--
-
-        console.log(this.state.counter)
     }
 
     formCalendar = (schedule) => {
@@ -54,18 +46,23 @@ export default class extends React.Component {
     }
 
     render(){
+        const ContBox = styled.div`
+            padding: 15px;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            height: 90vh;
+        `
+
         return(
             <Layout>
                 <div className='row'>
-                    <div className='eight columns cal' style={containerStyle}>
-                        <Calendar schedule={this.state.current} cal={this.state.tmp} />
+                    <ContBox className='eight columns'>
+                        <Cal schedule={this.state.current} cal={this.state.tmp} />
                         <ButtonController cb={this.changeCal.bind(this)} />
-                    </div>
-                    <div className='four columns' style={containerStyle}>
-                        <div className='container'>
-                            <Search callback={this.setSchedules.bind(this)} theme="u-full-width"/>
-                    </div>
-                    </div>
+                    </ContBox>
+                    <ContBox className='four columns'>
+                        <Search callback={this.setSchedules.bind(this)}/>
+                    </ContBox>
                 </div>
             </Layout>
         )
