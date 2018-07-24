@@ -1,21 +1,12 @@
-const NextBtn = () => {
-    return(<button>next</button>)
-}
-const PrevBtn = () => {
-    return(<button>prev</button>)
-}
+import Button from './Button/Button'
+
 const ButtonController = ({ cb }) => {
     return(
-    <div>
-        <button onClick={() => cb(0)}>prev</button>
-        <button onClick={()=> cb(1)}>next</button>
-    </div>
+        <div>
+            <Button onClick={() => console.log('foo')} btnType={'warn'} title={'Prev'}/>
+            <Button onClick={() => console.log('foo')} btnType={'warn'} title={'Next'}/>
+        </div>
     )
 }
 
 export default ButtonController
-
-const styles = {
-    backgroundColor: 'green',
-    color: 'white'
-}

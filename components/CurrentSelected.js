@@ -1,6 +1,4 @@
-import axios from 'axios'
-import SubmitBtn from './SubmitBtn'
-
+import Button from './Button/Button'
 const CurrentSelected = ({ classes, callback, submitCourses }) => (
     <div>
         <ul>
@@ -10,9 +8,19 @@ const CurrentSelected = ({ classes, callback, submitCourses }) => (
             }
         </ul>
 
-        <SubmitBtn callback={submitCourses} courses={classes.map(cls => cls.seminar)} />
-        <button onClick={callback}>Clear Selected</button>
+        <Button cb={() => console.log('poo')} title={'Submit'} btnType={'good'}  />
+        <Button cb={()=> console.log('fart')} title={'Clear'} btnType={'bad'} />
     </div>
 )
 
 export default CurrentSelected
+
+/* afraid to delete
+() => {
+    axios.post('/api/schedules/generate/', {courses: courses}).then((response) => {
+        callback(response.data)
+    })
+}
+
+courses={classes.map(cls => cls.seminar)}
+*/

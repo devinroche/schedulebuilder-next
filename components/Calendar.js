@@ -1,26 +1,30 @@
 import React from 'react';
-import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
-import WeekCalendar from 'react-week-calendar';
+import BigCalendar from 'react-big-calendar'
+import styled from 'styled-components';
 
-let tmp = []
+const CalContainer = styled.div`
+    height: 75vh;
+    padding-bottom: 20px;
+`
 
-const Calendar = props => {
-    console.log(props.cal)
+BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment))
 
-    return (
-        <WeekCalendar
-            firstDay={moment('2018-10-01')}
-            scaleUnit={30}
-            cellHeight={30}
-            dayFormat='ddd'
-            scaleFormat='h:mm A'
-            startTime={moment({ h: 8, m: 0 })}
-            endTime={moment({ h: 22, m: 0 })}
-            selectedIntervals={props.cal}
-            numberOfDays={5}
-        />
+let Cal = ({schedule, cal}) => {
+    return(
+        <CalContainer>
+            <BigCalendar
+                events={[]}
+                toolbar={false}
+                defaultView={'work_week'}
+                views={['week', 'work_week']}
+                step={30}
+                min={new Date(2018, 10, 1, 8, 0)} 
+                max={new Date(2018, 10, 1, 21, 30)} 
+                defaultDate={new Date(2018, 10, 1)}
+            />
+        </CalContainer>
     )
 }
-
-export default Calendar
+  
+export default Cal

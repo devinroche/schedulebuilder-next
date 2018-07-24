@@ -1,5 +1,5 @@
-const courses = require('./routes/api/courses');
-const schedules = require('./routes/api/schedules');
+const courses = require('./server/routes/api/courses');
+const schedules = require('./server/routes/api/schedules');
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -32,6 +32,6 @@ co(function * () {
         return handle(req, res)
     });
 
-    server.listen(process.env.PORT || 3000);
-    console.log(`Listening on ${process.env.PORT || 3000}`);
+    server.listen(process.env.PORT || 3001);
+    console.log(`Listening on ${process.env.PORT || 3001}`);
 }).catch(error => console.error(error.stack));

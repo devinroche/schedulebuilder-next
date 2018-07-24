@@ -3,7 +3,6 @@ var Schema = mongoose.Schema;
 
 
 const CourseSchema = new Schema({
-
     crn: {
         type: Number,
         required: [true, 'CRN Field is required.']
